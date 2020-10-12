@@ -81,8 +81,10 @@ void loop() {
   Serial.print(myservo.read());  
   Serial.println(",High:220,Max:300");
 
+// servo degree part
   degree = (dist_ema - dist_min) * 10.83 + _DUTY_MIN;
   myservo.writeMicroseconds(degree);
+  
 // update last sampling time
   last_sampling_time += INTERVAL;
 }
