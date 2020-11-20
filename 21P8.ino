@@ -9,8 +9,6 @@ Servo myservo;
 #define _DUTY_NEU 1475
 #define _DUTY_MIN 950
 
-int a, b; // unit: mm
-
 void setup() {
 // initialize GPIO pins
   pinMode(PIN_LED,OUTPUT);
@@ -21,9 +19,6 @@ void setup() {
   
 // initialize serial port
   Serial.begin(57600);
-
-  a = 69.95;
-  b = 330;
 }
 
 float ir_distance(void){ // return value unit: mm
