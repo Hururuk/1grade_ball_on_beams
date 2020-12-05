@@ -5,7 +5,7 @@
 #define PIN_SERVO 10
 #define PIN_IR A0
 // Framwork setting
-#define _DIST_TARGET 205 //255 - 55(Sensor)
+#define _DIST_TARGET 205 //255 - 50(Sensor)
 #define _DIST_MIN 90
 #define _DIST_MAX 410
 // Distance sensor
@@ -121,15 +121,6 @@ void loop() {
     }
     control = pterm + dterm;
     
-    /*control = _KP * pterm;
-    // duty_target = f(duty_neutral, control)
-    duty_target = _DUTY_NEU + control;
-    if (duty_target > _DUTY_MAX) {duty_target = _DUTY_MAX;}
-    if (duty_target < _DUTY_MIN) {duty_target = _DUTY_MIN;}
-
-    dterm = _KD * (error_curr - error_prev);
-    control = dterm;*/
-    
     duty_target = _DUTY_NEU + control;
     if (duty_target > _DUTY_MAX) {duty_target = _DUTY_MAX;}
     if (duty_target < _DUTY_MIN) {duty_target = _DUTY_MIN;}
@@ -153,24 +144,6 @@ void loop() {
   // Event_serial_handlers
   if (event_serial) {
     event_serial = false;
-    /*Serial.print("dist_ir:");
-    Serial.print(dist_raw);
-    Serial.print(",pterm:");
-    Serial.print(map(pterm, -1000, 1000, 510, 610));
-    Serial.print(",duty_target:");
-    Serial.print(map(duty_target, 1000, 2000, 410, 510));
-    Serial.print(",duty_curr:");
-    Serial.print(map(duty_curr, 1000, 2000, 410, 510));
-    Serial.println(",Min:100,Low:200,dist_target:255,High:310,Max:410");
-    Serial.print("dist_ir:");
-    Serial.print(dist_raw);
-    Serial.print(",dterm:");
-    Serial.print(map(dterm,-1000,1000,510,610));
-    Serial.print(",duty_target:");
-    Serial.print(map(duty_target,1000,2000,410,510));
-    Serial.print(",duty_curr:");
-    Serial.print(map(duty_curr,1000,2000,410,510));
-    Serial.println(",Min:100,Low:200,dist_target:255,High:310,Max:410");*/
     Serial.print("dist_ir:");
     Serial.print(dist_raw);
     Serial.print(",pterm:");
