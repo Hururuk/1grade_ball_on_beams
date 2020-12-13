@@ -24,8 +24,8 @@
 #define _INTERVAL_SERIAL 100
 // PID parameters
 #define _KP 1.2 
-#define _KD 70
-#define _KI 0.6 //0.3 
+#define _KD 60
+#define _KI 0.3 //0.3 
 #define _ITERM_MAX 50 //50 //item max
 // EMA filter
 #define EMA_ALPHA 0.35
