@@ -23,12 +23,12 @@
 #define _INTERVAL_SERVO 30
 #define _INTERVAL_SERIAL 100
 // PID parameters
-#define _KP 1.2 
-#define _KD 60
-#define _KI 0.3 //0.3 
+#define _KP 0.7
+#define _KD 45
+#define _KI 0.9 //0.3 
 #define _ITERM_MAX 50 //50 //item max
 // EMA filter
-#define EMA_ALPHA 0.35
+#define EMA_ALPHA 0.2
 // etc
 #define START _DUTY_MIN + 100
 #define END _DUTY_MAX - 100
@@ -78,6 +78,8 @@ void setup() {
   pause_time = 0.5;
   toggle_interval = (180.0 / _SERVO_SPEED + pause_time) * 1000 / _INTERVAL_SERVO;
   toggle_interval_cnt = toggle_interval;
+
+  pterm = iterm = dterm = 0;
 
   last_sampling_time_dist = 0;
   last_sampling_time_servo = 0;
